@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>음식 레시피</h1>
+
+<table th:align="center" border="1" th:width="700">
+    <tr>
+        <td th:text="ID" width="80"></td>
+        <td th:text="${recipe.id}"></td>
+    </tr>
+
+    <tr>
+        <td th:text="제목"></td>
+        <td th:text="${recipe.title}"></td>
+    </tr>
+
+    <tr>
+        <td th:text="내용">
+        <td><textarea th:text="${recipe.content}" name="content" cols="50" rows="10"></textarea></td>
+    </tr>
+</table>
+
+
+</body>
+</html>

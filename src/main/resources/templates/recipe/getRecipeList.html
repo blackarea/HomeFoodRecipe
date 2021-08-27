@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>음식 레시피</h1>
+
+<table th:align="center" border="1" th:width="700">
+    <tr>
+        <th bgcolor="orange" width="400">순번</th>
+        <th bgcolor="orange" width="400">제목</th>
+        <th bgcolor="orange" width="100">작성자</th>
+    </tr>
+    <tr th:each="recipe : ${recipeList}">
+        <td th:text="${recipe.id}"></td>
+        <td><a th:href="@{/member/getrecipe(id=${recipe.id})}" th:text="${recipe.title}"></a></td>
+        <td th:text="${recipe.member.name}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

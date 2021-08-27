@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>음식 레시피</h1>
+
+<form th:action="@{/member/insertrecipe}" method="post">
+    <table th:align="center" border="1" th:width="700">
+        <tr>
+            <td th:text="제목"></td>
+            <td><input name="title" type="text"></td>
+        </tr>
+        <tr>
+            <td th:text="내용">
+            <td><textarea name="content" cols="50" rows="10"></textarea></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="레시피 등록">
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+
+</body>
+</html>
