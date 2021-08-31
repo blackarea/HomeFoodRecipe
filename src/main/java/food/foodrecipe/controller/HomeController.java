@@ -2,9 +2,11 @@ package food.foodrecipe.controller;
 
 import food.foodrecipe.domain.Member;
 import food.foodrecipe.domain.Recipe;
+import food.foodrecipe.domain.Role;
 import food.foodrecipe.repository.MemberRepository;
 import food.foodrecipe.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +21,8 @@ public class HomeController {
     private MemberRepository memberRepository;
     @Autowired
     private RecipeRepository recipeRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @PostConstruct
     public void saveMember(){
@@ -26,8 +30,9 @@ public class HomeController {
         IntStream.rangeClosed(1, 5).forEach(i -> {
             Member member = Member.builder()
                     .user_id("user" + i)
-                    .password("pwd"+ i)
+                    .password(passwordEncoder.encode("pwd"+ i))
                     .name("name" +i)
+                    .role(Role.ROLE_MEMBER)
                     .build();
             memberRepository.save(member);
 

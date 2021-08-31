@@ -18,7 +18,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Autowired MemberRepository memberRepository;
 
-    @Autowired
+    /*@Autowired
     private PasswordEncoder passwordEncoder;
 
     @Override
@@ -26,7 +26,7 @@ public class MemberServiceImpl implements MemberService {
         String encodedPassword = passwordEncoder.encode(memberForm.getPassword());
         Member member = new Member(memberForm.getUser_id(), encodedPassword, memberForm.getUsername());
         return memberRepository.save(member);
-    }
+    }*/
 
     @Override
     public List<Recipe> getMyRecipeList(Member member) {
@@ -35,7 +35,7 @@ public class MemberServiceImpl implements MemberService {
         return recipes;
     }
 
-    @Override
+    /*@Override
     public Member login(String user_id, String password) {
         Optional<Member> findMember = memberRepository.findOptionalByUser_id(user_id);
         if(findMember.isPresent()){
@@ -47,7 +47,7 @@ public class MemberServiceImpl implements MemberService {
         }else{
             return null;
         }
-    }
+    }*/
 
 
 }

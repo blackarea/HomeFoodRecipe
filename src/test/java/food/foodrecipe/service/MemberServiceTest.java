@@ -16,7 +16,7 @@ class MemberServiceTest {
         memberForm.setUser_id("id");
         memberForm.setPassword("pwd");
         memberForm.setUsername("name");
-        memberService.save(memberForm);
+        //memberService.save(memberForm);
 
 
     }

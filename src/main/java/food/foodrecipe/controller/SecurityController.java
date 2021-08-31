@@ -24,12 +24,17 @@ public class SecurityController {
         return "/security/login";
     }
 
-    @PostMapping("/login")
+    /*@PostMapping("/login")
     public String login(LoginForm loginForm){
         System.out.println(loginForm.getPassword()+" "+ loginForm.getUser_id());
         Member loginMember = memberService.login(loginForm.getUser_id(), loginForm.getPassword());
         System.out.println(loginMember.toString());
         return "forward:/";
+    }*/
+
+    @GetMapping("/logout")
+    public void logout(){
+
     }
 
     @GetMapping("/register")

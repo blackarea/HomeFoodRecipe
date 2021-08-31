@@ -24,9 +24,12 @@ public class Member {
     @Column(nullable = false, length = 100)
     private String password;
 
-    @Column(nullable = false, length = 12)
+    @Column(length = 12)
     private String name;
     private String email;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @Builder.Default
     @OneToMany(mappedBy = "member")
