@@ -7,6 +7,7 @@
 <body>
 <h1>음식 레시피</h1>
 
+<form th:action method="post">
 <table th:align="center" border="1" th:width="700">
     <tr>
         <td th:text="ID" width="80"></td>
@@ -15,15 +16,17 @@
 
     <tr>
         <td th:text="제목"></td>
-        <td th:text="${recipe.title}"></td>
+        <td><input name="title" type="text" th:value="${recipe.title}"></td>
     </tr>
 
     <tr>
         <td th:text="내용">
-        <td><textarea th:text="${recipe.content}" name="content" cols="50" rows="10"></textarea></td>
+        <td><textarea name="content" th:text="${recipe.content}" cols="50" rows="10"></textarea></td>
     </tr>
 </table>
-<button th:align="center" th:onclick="|location.href='@{/member/updaterecipe/{recipeId}(recipeId=${recipe.id})}'|">글 수정하기</button>
+    <input th:align="center" type="submit" value="글 수정">
+</form>
+
 
 </body>
 </html>

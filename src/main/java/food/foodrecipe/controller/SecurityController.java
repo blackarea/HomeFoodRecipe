@@ -33,8 +33,8 @@ public class SecurityController {
     }*/
 
     @GetMapping("/logout")
-    public void logout(){
-
+    public String  logout(){
+        return "redirect:/";
     }
 
     @GetMapping("/register")

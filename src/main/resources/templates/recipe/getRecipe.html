@@ -23,7 +23,7 @@
         <td><textarea th:text="${recipe.content}" name="content" cols="50" rows="10"></textarea></td>
     </tr>
 </table>
-
+<button th:onclick="|location.href='@{/member/updaterecipe/{recipeId}(recipeId=${recipe.id})}'|"></button>
 
 </body>
 </html>

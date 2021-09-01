@@ -1,6 +1,7 @@
 package food.foodrecipe.service;
 
 import food.foodrecipe.domain.Recipe;
+import food.foodrecipe.domain.form.RecipeForm;
 import food.foodrecipe.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,11 +20,10 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public void updateRecipe(Recipe recipe) {
-        Recipe findRecipe = recipeRepository.findById(recipe.getId()).get();
-
-        findRecipe.update(recipe.getTitle(), recipe.getContent());
-        //recipeRepository.save(findRecipe);
+    public void updateRecipe(Long id, RecipeForm recipeForm) {
+        Recipe findRecipe = recipeRepository.findById(id).get();
+        findRecipe.update(recipeForm.getTitle(), recipeForm.getContent());
+        recipeRepository.save(findRecipe);
     }
 
     @Override
