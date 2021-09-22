@@ -23,7 +23,10 @@
         <td><textarea th:text="${recipe.content}" name="content" cols="50" rows="10"></textarea></td>
     </tr>
 </table>
-<button th:align="center" th:onclick="|location.href='@{/member/updaterecipe/{recipeId}(recipeId=${recipe.id})}'|">글 수정하기</button>
+<div th:align="center">
+    <button th:align="center" th:onclick="|location.href='@{/member/updaterecipe/{recipeId}(recipeId=${recipe.id})}'|">글 수정하기</button>
+    <button th:align="center" th:onclick="|location.href='@{/member/deleterecipe/(id=${recipe.id})}'|">글 삭제하기</button>
+</div>
 
 </body>
 </html>

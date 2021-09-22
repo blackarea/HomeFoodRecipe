@@ -67,4 +67,10 @@ public class MemberController {
         recipeService.updateRecipe(id, recipeForm);
         return "redirect:/member/getmyrecipelist";
     }
+
+    @GetMapping("/deleterecipe")
+    public String deleteRecipe(Long id){
+        recipeService.deleteRecipe(id);
+        return "redirect:/member/getmyrecipelist";
+    }
 }

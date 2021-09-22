@@ -1,6 +1,8 @@
 package food.foodrecipe.domain;
 
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
@@ -28,10 +30,10 @@ public class Member {
     private String name;
     private String email;
 
-    @Enumerated(EnumType.STRING)
-    private Role role;
+    @Enumerated(EnumType.STRING) //이건왜 @Builder.Default이게 없어도 되는거지?..
+    private Role role = Role.ROLE_MEMBER;
 
-    @Builder.Default
+    @Builder.Default //builder는 기본적으로 null값이 들어가는데 기본값을 사용하려면 이 어노테이션이 필요하다
     @OneToMany(mappedBy = "member")
     private List<Recipe> recipes = new ArrayList<>();
 

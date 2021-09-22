@@ -17,12 +17,9 @@ import java.util.stream.IntStream;
 @Controller
 public class HomeController {
 
-    @Autowired
-    private MemberRepository memberRepository;
-    @Autowired
-    private RecipeRepository recipeRepository;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    @Autowired private MemberRepository memberRepository;
+    @Autowired private RecipeRepository recipeRepository;
+    @Autowired private PasswordEncoder passwordEncoder;
 
     @PostConstruct
     public void saveMember(){
