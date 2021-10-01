@@ -13,5 +13,5 @@ public interface RecipeService {
     void deleteRecipe(Long id);
     Recipe getRecipe(Long id);
     List<Recipe> getRecipeList();
-    //Page<Recipe> getRecipeList(Recipe recipe);
+    Page<Recipe> getRecipeListPaging(int page);
 }

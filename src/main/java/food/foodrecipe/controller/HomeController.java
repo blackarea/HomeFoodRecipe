@@ -24,7 +24,7 @@ public class HomeController {
     @PostConstruct
     public void saveMember(){
 
-        IntStream.rangeClosed(1, 5).forEach(i -> {
+        IntStream.rangeClosed(1, 210).forEach(i -> {
             Member member = Member.builder()
                     .user_id("user" + i)
                     .password(passwordEncoder.encode("pwd"+ i))

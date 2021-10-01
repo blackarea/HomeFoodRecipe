@@ -9,16 +9,70 @@
 
 <table th:align="center" border="1" th:width="700">
     <tr>
-        <th bgcolor="orange" width="400">순번</th>
-        <th bgcolor="orange" width="400">제목</th>
-        <th bgcolor="orange" width="100">작성자</th>
+        <th bgcolor="orange" width="100">순번</th>
+        <th bgcolor="orange" width="500">제목</th>
+        <th bgcolor="orange" width="200">작성자</th>
     </tr>
-    <tr th:each="recipe : ${recipeList}">
+    <tr th:each="recipe : ${pages}">
         <td th:text="${recipe.id}"></td>
         <td><a th:href="@{/member/getrecipe(id=${recipe.id})}" th:text="${recipe.title}"></a></td>
         <td th:text="${recipe.member.name}"></td>
     </tr>
 </table>
+
+<div>
+    <ul th:with="start=${(pageNumber/10)*10+1},
+    end=${start + 9 < pages.getTotalPages() ? start + 9 : pages.getTotalPages()}">
+
+        <li>
+            <a th:href="@{/recipe/getrecipelist}" th:text="'<<'"></a>
+        </li>
+
+        <li>
+            <a th:href="@{/recipe/getrecipelist(page=${(pageNumber/10)*10-10})}" th:text="'<'"></a>
+        </li>
+
+        <li th:each="page: ${#numbers.sequence(start, end)}">
+            <a th:href="@{/recipe/getrecipelist(page=${page-1})}" th:text="${page}"></a>
+        </li>
+        <!--th:if="${end < pages.totalPages}"-->
+
+        <li th:if="${end < pages.getTotalPages()}">
+            <a th:href="@{/recipe/getrecipelist(page=${(pageNumber/10)*10+10})}" th:text="'>'"></a>
+        </li>
+
+        <li>
+            <a th:href="@{/recipe/getrecipelist(page=${pages.getTotalPages()-1})}" th:text="'>>'"></a>
+        </li>
+    </ul>
+</div>
+
+
+<!--<div class="page-num" th:with="start=${(pages.number/maxPage)*maxPage + 1},
+                  end=(${(pages.totalPages == 0) ? 1 : (start + (maxPage - 1) < pages.totalPages ? start + (maxPage - 1) : pages.totalPages)})" >
+    <ul>
+        <li th:if="${start > 1}">
+            <a th:href="@{/list?(page=0)}" th:text="'<<'"></a>
+        </li>
+
+        <li th:if="${start > 1}">
+            <a th:href="@{/list?(page=${start - maxPage})}" th:text="'<'"></a>
+        </li>
+
+        <li th:each="page: ${#numbers.sequence(start, end)}">
+            <a th:href="@{/list?(page=${page-1})}" th:text="${page}"></a>
+        </li>
+
+        <li th:if="${end < pages.totalPages}">
+            <a th:href="@{/list?(page=${start + maxPage})}" th:text="'>'"></a>
+        </li>
+
+        <li th:if="${end < pages.totalPages}">
+            <a th:href="@{/list?(page=${pages.totalPages-1})}" th:text="'>>'"></a>
+        </li>
+    </ul>
+</div>-->
+
 <div th:align="center"><a th:href="@{/}">home</a></div>
 
 </body>

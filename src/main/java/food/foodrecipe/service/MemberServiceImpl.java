@@ -33,19 +33,6 @@ public class MemberServiceImpl implements MemberService {
         return recipes;
     }
 
-    /*@Override
-    public Member login(String user_id, String password) {
-        Optional<Member> findMember = memberRepository.findOptionalByUser_id(user_id);
-        if(findMember.isPresent()){
-            if(findMember.get().getPassword().equals(password)){
-                return findMember.get();
-            }else{
-                return null;
-            }
-        }else{
-            return null;
-        }
-    }*/
 
 
 }
