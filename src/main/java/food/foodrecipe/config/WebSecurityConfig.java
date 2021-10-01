@@ -30,7 +30,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                     .logoutUrl("/security/logout").invalidateHttpSession(true).logoutSuccessUrl("/")
                     .and()
-
                 /*.exceptionHandling()
                     .accessDeniedPage("/security/accessdenied")
                     .and()*/
@@ -41,8 +40,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable();
     }
 
-    @Bean
+    /*@Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-    }
+    }*/
 }

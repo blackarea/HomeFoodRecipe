@@ -19,7 +19,7 @@ public class HomeController {
 
     @Autowired private MemberRepository memberRepository;
     @Autowired private RecipeRepository recipeRepository;
-    @Autowired private PasswordEncoder passwordEncoder;
+    //@Autowired private PasswordEncoder passwordEncoder;
 
     @PostConstruct
     public void saveMember(){
@@ -27,7 +27,7 @@ public class HomeController {
         IntStream.rangeClosed(1, 210).forEach(i -> {
             Member member = Member.builder()
                     .user_id("user" + i)
-                    .password(passwordEncoder.encode("pwd"+ i))
+                    .password("pwd"+ i)
                     .name("name" +i)
                     .role(Role.ROLE_MEMBER)
                     .build();

@@ -17,12 +17,12 @@ public class MemberServiceImpl implements MemberService {
     //설정 등 멤버 관리
 
     @Autowired private MemberRepository memberRepository;
-    @Autowired private PasswordEncoder passwordEncoder;
+    //@Autowired private PasswordEncoder passwordEncoder;
 
     @Override
     public Member save(MemberForm memberForm) {
-        String encodedPassword = passwordEncoder.encode(memberForm.getPassword());
-        Member member = new Member(memberForm.getUser_id(), encodedPassword, memberForm.getUsername());
+        //String encodedPassword = passwordEncoder.encode(memberForm.getPassword());
+        Member member = new Member(memberForm.getUser_id(), memberForm.getPassword(), memberForm.getUsername());
         return memberRepository.save(member);
     }
 
